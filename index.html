@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Betafolio Fees Calculator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="dist/css/betafolio-fees-calculator.css">
+</head>
+<body>
+
+  <section id="betafolio-calculator" class="beta-container">
+
+    <div class="beta-heading mb-2">
+        <h2 class="mt-0">Fee Calculator: Compare Betafolio Fee vs Typical MPS Discretionary Manager</h2>
+    </div>
+    <div class="beta-content">
+      <div class="beta-form-container">
+        <form method="post" id="beta-form">
+          <div class="beta-form-group">
+            <label class="label">Select a portfolio</label>
+            <div class="beta-radio-bar">
+              <input type="radio" id="cautious" name="betafolio" value="40">
+              <label for="cautious">Cautious</label>
+
+              <input type="radio" id="balanced" name="betafolio" value="60" checked>
+              <label for="balanced">Balanced</label>
+
+              <input type="radio" id="aggresive" name="betafolio" value="80">
+              <label for="aggresive">Aggressive</label>
+            </div>
+          </div>
+          <div class="beta-form-group input-prefix">
+            <span class="prefix with-label">£</span>
+            <label class="label">Advised client assets</label>
+            <input type="text" name="AUM" id="AUM" required class="beta-form-control beta-currency-input" value="100000000" placeholder="AUM"/>
+          </div>
+
+          <div class="beta-form-group">
+            <label class="label">Number of clients</label>
+            <input type="text" name="numberOfClients" required id="numberOfClients" value="250" class="beta-form-control beta-number-input" placeholder="Number of clients"/>
+          </div>
+
+          <div class="beta-form-group mt-1">
+            <label class="label">Betafolio Plan</label>
+            <div class="beta-radio-bar">
+              <input type="radio" id="pro" name="plan" value="Pro" checked>
+              <label for="pro">Professional</label>
+
+              <input type="radio" id="premium" name="plan" value="Premium">
+              <label for="premium">Premium</label>
+            </div>
+          </div>
+
+          <div class="beta-vs">vs.</div>
+
+          <div class="beta-form-group input-prefix">
+            <span class="prefix with-label">%</span>
+            <label class="label">Typical Discretionary Mgr Fee (/yr.)</label>
+            <input type="text" name="percentageFee" id="percentageFee" value="0.36" required class="beta-form-control beta-number-input" placeholder="Percentage fee"/>
+            <small class="beta-input-hint beta-font-light">MPS Discretionary Manager Fee / yr (inc. vat)</small>
+            <p class="mb-0 mt-0"><small class="beta-notice">NOTE ALL FEES INCLUDE VAT</small></p>
+          </div>
+
+          <div class="beta-form-group">
+            <label class="label">Years of Planning</label>
+            <input type="text" name="yearsOfPlanning" id="yearsOfPlanning" value="30" required class="beta-form-control beta-number-input" placeholder="e.g 30"/>
+          </div>
+
+          <div class="beta-form-group">
+            <button type="submit" class="beta-btn">Compare</button>
+          </div>
+        </form>
+      </div>
+      <div class="beta-chart-container">
+        <h4 class="mt-0 beta-font-bold">Compare Results</h4>
+
+        <div class="beta-chart-toolbar mb-2">
+            <div class="beta-chart-scenario">
+              <select name="betaFolioScenario" id="betaFolioScenario" class="betafolio-select">
+                <option value="0">Worst Scenario</option>
+                <option value="2">Median Scenario</option>
+                <option value="4">Best Scenario</option>
+                <option value="5">Latest Period</option>
+              </select>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="beta-chart"></div>
+
+        <div class="beta-table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Summary Table</th>
+                <th scope="col">Start Date of the Scenario</th>
+                <th scope="col">Terminal value of the balance</th>
+                <th scope="col">Cumulative Fees</th>
+                <th scope="col">Terminal Value Savings vs Typical DFM</th>
+                <th scope="col">Cumulative Fees Savings vs Typical DFM</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="beta-chart-information">
+          <p>This calculator demonstrates the impact of discretionary management fee on the client assets of adviser firms. The table above shows how the Betafolio's flat fee proposition compares with a typical discretionary  investment. The calculator uses extensive monthly historical return of asset classes to reflect the true impact of cost under a wide range of market conditions.</p>
+          <p>Past performance is no guarantee of future return. The value of investments and the income from them can go down as well as up. You may get back less than you invest. Transaction costs, taxes and inflation reduce investment returns.</p>
+        </div>
+
+        <div class="beta-asset-location-breakdown">
+          <h6>Asset Allocation Breakdown</h6>
+          <span id="beta-show-breakdown" onclick="toggleAssetBreakDown('beta-alb-content')">Show</span>
+          <div id="beta-alb-content">
+            <p><u>Cautious:</u> 20% Global Short Dated Bonds, 20% Global Bonds, 20% UK Bonds, 12.48% Global Targeted Value, 18.72% Global Equities, 6% Emerging Markets and 2.80% Property.</p>
+            <p><u>Balanced:</u> 13.33% Global Short Dated Bonds, 13.33% Global Bonds, 13.34% UK Bonds, 18.72% Global Targeted Value, 28.08% Global Equities, 9% Emerging Markets and 4.2% Property.</p>
+            <p><u>Aggressive:</u> 6.67% Global Short Dated Bonds, 6.67% Global Bonds, 6.66% UK Bonds, 24.95% Global Targeted Value, 37.45% Global Equities, 12% Emerging Markets and 5.6% Property.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="beta-loading">
+      <div class="beta-loading__ring"></div>
+      <div class="beta-loading__ring"></div>
+      <div class="beta-loading__ring"></div>
+      <div class="beta-loading__ring"></div>
+    </div>
+  </section>
+
+  <script src="dist/js/betafolio-fees-calculator.js"></script>
+</body>
+</html>

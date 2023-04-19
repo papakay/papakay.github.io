@@ -1,0 +1,94 @@
+
+// html,
+// body {
+//   height: 100%;
+//   width: 100%;
+//   margin: 0;
+//   padding: 0;
+//   left: 0;
+//   top: 0;
+//   font-size: 100%;
+// }
+
+.beta-font-light {
+  font-weight: $font-weight-light;
+}
+
+.beta-font-regular {
+  font-weight: $font-weight-regular;
+}
+
+.beta-font-heavy {
+  font-weight: $font-weight-heavy;
+}
+
+// utility
+.beta-left {
+  text-align: left;
+}
+
+// .beta-right {
+//   text-align: right;
+// }
+
+.beta-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.beta-justify {
+  text-align: justify;
+}
+
+.beta-text-uppercase{
+  text-transform: uppercase;
+}
+
+.beta-hidden-sm {
+  display: none;
+}
+
+.p-0{
+  padding: 0;
+}
+
+.ml-0{
+  margin-left: 0 !important;
+}
+
+.mr-0{
+  margin-right: 0 !important;
+}
+
+.mt-0{
+  margin-top: 0;
+}
+
+.mb-0{
+  margin-bottom: 0;
+}
+
+.mb-1{
+  margin-bottom: 1em;
+}
+
+.mt-1{
+  margin-top: 1em;
+}
+
+.mb-2{
+  margin-bottom: 2em;
+}
+
+.mt-2{
+  margin-top: 2em;
+}
+
+.beta-notice{
+  color: #999;
+  text-transform: uppercase;
+  font-weight: $font-weight-regular;
+  letter-spacing: 0.02em;;
+  font-size: 0.65rem;
+}

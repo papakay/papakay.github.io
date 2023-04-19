@@ -1,0 +1,101 @@
+
+.beta-table{
+  margin-top: 1.5rem;
+
+  table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: unset;
+    border-spacing: 0;
+    border: none !important;
+
+    th, td {
+      padding: .70em;
+      line-height: 1.2 !important;
+    }
+
+    tr td{
+      font-size: 0.85rem;
+      border-top: none;
+    }
+
+    tr td.beta-fee-summary{
+      font-size: 0.70rem;
+    }
+
+    th {
+      font-size: .70em;
+      color: $dark;
+      line-height: 1.2 !important;
+      text-align: left;
+      text-transform: uppercase;
+      font-weight: $font-weight-regular;
+      border-bottom: 1px solid #d6d6d6 !important;
+      border-top: 1px solid #d6d6d6 !important;
+
+      &:first-child{
+        font-weight: $font-weight-heavy;
+        text-transform: none;
+        font-size: .75em;
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 600px) {
+    table {
+      border: none;
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    table tr {
+      border: 0;
+      display: block;
+      margin-bottom: .625em;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      border-radius: $border-radius;
+    }
+
+    table td {
+      display: block;
+      font-size: .8em;
+      text-align: right;
+      font-weight: $font-weight-heavy;
+      background-color: #fff;
+    }
+
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: $font-weight-light;
+    }
+
+    table td:first-child {
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      text-transform: uppercase;
+      color: #999;
+      padding-top:10px;
+      padding-bottom: 10px;
+      font-weight: $font-weight-regular !important;
+      border-radius: $border-radius $border-radius 0 0;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+      border-radius: 0 0 $border-radius $border-radius;
+    }
+  }
+}
