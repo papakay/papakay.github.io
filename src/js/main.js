@@ -1,6 +1,8 @@
 var betaContainer = document.getElementById("betafolio-calculator");
 // Please change the path to if you're not running this with gulp or if you're in production
-var csvDataUrl = "http://localhost:8888/data/Betafolios.csv";
+// var csvDataUrl = "http://localhost:8888/data/Betafolios.csv";
+var csvDataUrl = "https://papakay.github.io/data/Betafolios.csv";
+
 var betaCalculationResult = [];
 var betaChart;
 
